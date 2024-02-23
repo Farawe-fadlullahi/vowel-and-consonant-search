@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vowel search</title>
+</head>
+
+<body>
+    <input type="text" name="" id="input">
+    <button onclick="check()"> check vowel</button>
+    <p id="ptag"></p>
+    <p id="spantag"></p>
+</body>
+
+</html>
+<script>
+    let ptag = document.getElementById('ptag')
+    let spantag = document.getElementById('spantag')
+    let vowels = ['a', 'e', 'i', 'o', 'u']
+    let consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
+    let new_a = []
+    let new_c = []
+    function check() {
+        ptag.innerHTML = ''
+        spantag.innerHTML = ''
+        let Input = input.value.split('')
+        console.log(Input)
+        Input.forEach(function (vowel) {
+            if (vowels.includes(vowel)) {
+                new_a.push(vowel)
+                if (new_a.length > 1) {
+                    console.log(new_a)
+                    ptag.innerHTML = `i found ${new_a.length} vowels, which are ${new_a.join(',')} `
+                } else {
+                    ptag.innerHTML = `i found ${new_a.length} vowel, which is ${vowel} `
+                }
+                input.value = ''
+            } else {
+                Input.forEach(function (consonant) {
+                    if (consonants.includes(consonant)) {
+                        new_c.push(consonant)
+                            console.log(new_c)
+                        if (new_c.length > 1) {
+                            spantag.innerHTML = `i found ${new_c.length} vowels, which are ${new_c.join(',')} `
+                        } else {
+                            spantag.innerHTML = `i found ${new_c.length} vowel, which is ${consonant} `
+                        }
+                        input.value = ''
+                    } else {
+                    }
+                })
+            }
+        
+    })
+    }
+</script>
